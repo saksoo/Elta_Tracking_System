@@ -62,3 +62,4 @@ def getData(order_num):
 getData("RF310279044SG");
 
 print("O giorgos einai gay");
+print("kai o nikos alla einai krufi");
