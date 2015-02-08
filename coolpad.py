@@ -56,7 +56,7 @@ def getData(order_num):
     
     #Printing the data
     for i in range(0, order_changes):    
-        print  list_of_status[i], list_of_dates[i], list_of_times[i] ,list_of_places[i]
+        print  (list_of_status[i], list_of_dates[i], list_of_times[i] ,list_of_places[i])
 
 
         
