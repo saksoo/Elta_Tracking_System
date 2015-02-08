@@ -4,7 +4,6 @@ import json
 
 
 
-
 def getData(order_num):
     
     order = order_num
@@ -76,7 +75,7 @@ times    = passed_data[5]
 print (number)
 print (changes)
 print (dates)
-print (status)
+print (status[2])
 print (places)
 print (times)
 
