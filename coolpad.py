@@ -57,6 +57,8 @@ def getData(order_num):
         print  list_of_status[i], list_of_dates[i], list_of_times[i] ,list_of_places[i]
 
 
-
+        
 
 getData("RF310279044SG");
+
+print("O giorgos einai gay");
