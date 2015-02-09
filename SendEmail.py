@@ -31,7 +31,7 @@ def SendEmail(to_addr_list, cc_addr_list, subject, message):
 
 receiver = ['receiver_list']
 cc_receivers = ['Cc_list']
-Subject = 'Coolpad news'
-message = 'You track number has changed, check please'
+Subject = 'Put your subject'
+message = 'write your message'
 SendEmail(receiver, cc_receivers, Subject, message) 
 
