@@ -3,23 +3,21 @@ import requests
 import smtplib
 import os
 
+sender = 'sender@email.com'
+receivers = ['receiver@email.com']
 
-def SendEmail():
-
-  sender = 'sender@email.com'
-  receivers = ['receiver@email.com']
-
-  username = 'username'
-  password = 'password'
-  test = 'your test message'
+username = 'username'
+password = 'password'
+test = 'your test message'
     
-  message = """From: From Person <from@fromdomain.com>
-  To: To Person <receiver@email.com>
-  Subject: Coolpad news
-  """+test+"""
-  Check Coolpad status...
-  It's near!!!""" 
-  
+message = """From: From Person <from@fromdomain.com>
+To: To Person <receiver@email.com>
+Subject: Coolpad news
+"""+test+"""
+Check Coolpad status...
+It's near!!!""" 
+
+def SendEmail():  
   smtpObj = smtplib.SMTP('localhost')
   smtpObj.ehlo()
   smtpObj.starttls()
