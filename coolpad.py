@@ -1,4 +1,5 @@
 from __future__ import print_function
+from tabulate import tabulate
 import requests
 import json
 
@@ -71,6 +72,16 @@ dates    = passed_data[2]
 status   = passed_data[3]
 places   = passed_data[4]
 times    = passed_data[5]
+
+
+f = open('status_list.txt','w')
+for i in range(changes):
+  table = [[dates[i]],[times[i]],[status[i]],[places[i]]]
+  t = tabulate(table,headers = [" "])
+  s = unicode(t)
+  f.write(s.encode('utf-8'))
+  
+f.close()
 
 print (number)
 print (changes)
