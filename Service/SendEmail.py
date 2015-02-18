@@ -42,4 +42,3 @@ def Send(to_addr_list, cc_addr_list, subject, message):
     log = open('file.log','a')
     log.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S')+": \nError!! Unable to send email\n\n")
     log.close()
-

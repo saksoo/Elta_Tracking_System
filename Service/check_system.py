@@ -67,4 +67,3 @@ else:
   log.write(datetime.now().strftime('%Y-%m-%d %H:%M:%S')+": \nNo status chage \n\n")
   log.close()
   
-
