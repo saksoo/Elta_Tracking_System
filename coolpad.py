@@ -53,3 +53,5 @@ def getData(order_num):
         list_of_times.insert(i,this_order[order_number]['result'][i]['time'])    
          
     return order_number,order_changes,list_of_dates,list_of_status,list_of_places,list_of_times
+
+
