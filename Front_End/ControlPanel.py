@@ -1,6 +1,10 @@
 from Service import coolpad
 import tkinter
 from tkinter import *
+#import sys
+#sys.path.append('..\Service')
+#import coolpad
+
 
 
 
