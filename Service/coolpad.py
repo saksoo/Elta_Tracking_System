@@ -4,6 +4,13 @@ import json
 
 
 
+#returns the requested data
+#in case of errors
+    # returns "WN" if number is not valid
+    # returns "ERROR" if there is a service error
+    # returns "NE" if tracking number does not exist in elta system 
+
+
 def getData(order_num):
     
     order = order_num
@@ -12,10 +19,22 @@ def getData(order_num):
     url = 'http://www.elta-courier.gr/track.php'
     payload = { 'number': order }
     
+    if (len(order_num)!=13):
+        print ("Enter a valid number")
+        return "WN"
     
+    # handle the exception
+    try:                                                                    
+        r = requests.post(url, data=payload)
+        #print (r.status_code)
+        #print (r.content)
+    except requests.exceptions.RequestException as e:     
+        print (e)
+        return "ERROR"
+    
+            
     #Send the request to the server and change encoding to utf-8
-    #Store the response in a string and decode it 
-    r = requests.post(url, data=payload)
+    #Store the response in a string and decode it
     r.encoding = 'utf-8'
     text = r.text
     response = json.loads(text)
@@ -30,6 +49,9 @@ def getData(order_num):
     
     #for this order
     this_order = response['result']
+    
+    if (this_order[order_number]['result'] == "wrong number"):
+        return "NE"
     
     #We keep lists with all the data of the order
     list_of_dates=[]
@@ -54,4 +76,8 @@ def getData(order_num):
          
     return order_number,order_changes,list_of_dates,list_of_status,list_of_places,list_of_times
 
+    
+
+       
+        
 

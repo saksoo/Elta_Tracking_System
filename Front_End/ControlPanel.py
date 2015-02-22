@@ -15,29 +15,42 @@ from tkinter import *
 
 def TrackAction():
     
+    #Clear all text
+    output_text.delete("0.0",END)
+    
     tracking_number = E1_text.get()
 
     #order = "RE422523075GR"
     
     data = coolpad.getData(tracking_number)
     
-    output_text.insert(INSERT, "Your tracking number is: \n") 
-    output_text.insert(END, (data[0]) + "\n\n") 
+    if data == "ERROR":
+        output_text.insert(INSERT, "Elta Service is not responding, Please try again later!\n")
+        return
+    elif data == "WN":
+        output_text.insert(INSERT, "Please insert a valid number!\n")
+        return
+    elif data == "NE":
+        output_text.insert(INSERT, "There is no entry for this tracking number!\n")
+        return
+    else:
+        output_text.insert(INSERT, "Your tracking number is: \n") 
+        output_text.insert(END, (data[0]) + "\n\n") 
+        
+        output_text.insert(END, "Tracking details: \n\n\n") 
+        output_text.insert(END, "Date" + "\t" + "\t" + "Time" +  "\t" + "Status"+ "\t" + "\t" + "\t"+ "\t"+  "\t"+ "\t" +"Location\n") 
+        
+        
+        order_changes = data[1]
+        for i in range(0,order_changes):
+            date     = data[2][i]
+            status   = data[3][i]
+            location = data[4][i]
+            time     = data[5][i]
+           
+            output_text.insert(END, date + "\t" + "\t"+ time +  "\t" + status+  "\t"+ "\t" + "\t"+ "\t"+ "\t"+ "\t" + location + "\n") 
     
-    output_text.insert(END, "Tracking details: \n\n\n") 
-    output_text.insert(END, "Date" + "\t" + "\t" + "Time" +  "\t" + "Status"+ "\t" + "\t" + "\t"+ "\t"+  "\t"+ "\t" +"Location\n") 
-    
-    
-    order_changes = data[1]
-    for i in range(0,order_changes):
-        date     = data[2][i]
-        status   = data[3][i]
-        location = data[4][i]
-        time     = data[5][i]
-       
-        output_text.insert(END, date + "\t" + "\t"+ time +  "\t" + status+  "\t"+ "\t" + "\t"+ "\t"+ "\t"+ "\t" + location + "\n") 
-    
-
+        return
 
 
 def ClearAction():
